@@ -2,6 +2,8 @@
 from collections import defaultdict
 
 def solution(sales, links):
+    teamsDict = defaultdict(list)
+    teamConnection = defaultdict(list)
     realation = [] # [0]-상위 팀장 [1]-하위 팀장 [2]-매출 캐이스 차이 
     # links를 번호순으로 정렬
     links.sort(key=lambda x: (x[0], x[1]))
@@ -13,17 +15,23 @@ def solution(sales, links):
     # sales랑 계산하기 쉽게 번호 1 씩 빼서 팀원들 배열에 넣기
     for link in links:
         teams[link[0]-1].append(link[1]-1)
-    print(teams)
+        teamsDict[link[0]-1].append(link[1]-1)
 
     # 팀 연결관계 구하기
-    for team in teams:
-        if len(team) != 1:
-            for i in range(len(team)):
-                if(team[i] == teams[i][0]):
-                    print(team[i], "check")
+    for teamLeader in teamsDict:
+        for member in teamsDict[teamLeader]:
+            if member in teamsDict:
+                teamConnection[teamLeader].append(member)
+    print(teamConnection)
+
+    # for team in teams:
+    #     if len(team) != 1:
+    #         for i in range(len(team)):
+    #             if(team[i] == teams[i][0]):
+    #                 print(team[i], "check")
                 # realation.append([team[0], team[i]])
     #             realation['3'+'5']= 3
-    print(realation)
+    # print(realation)
 
 
 
@@ -45,7 +53,7 @@ def solution(sales, links):
 
 
 
-
+# 참석인원의 매출이 최소화된 값
     answer = 0
     return answer
 
