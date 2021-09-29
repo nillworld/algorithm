@@ -23,7 +23,6 @@ def solution(n, info):
         if tempScore > score:
             score = tempScore
             answer = tempInfo
-    print(score)
     if score <= 0:
         answer = [-1]
     return answer
