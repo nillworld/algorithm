@@ -26,3 +26,8 @@ print(solution(ex2_arr1, ex2_arr2))
 
 # numpy 시간 복잡도
 # numpy 없이
+
+
+# 행렬곱셈 시간복잡도
+# https://gomlib.tistory.com/15
+# https://seokdev.site/264
