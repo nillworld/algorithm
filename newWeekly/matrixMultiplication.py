@@ -31,3 +31,6 @@ print(solution(ex2_arr1, ex2_arr2))
 # 행렬곱셈 시간복잡도
 # https://gomlib.tistory.com/15
 # https://seokdev.site/264
+
+# 형렬 곱셈의 관점
+# https://bskyvision.com/500
