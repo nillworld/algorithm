@@ -7,9 +7,14 @@ def solution(arr1, arr2):
 
 def solution2(arr1, arr2):
   answer = [[]]
-  print(len(arr1))
-  print(len(arr1[0]))
+  arr1_n = len(arr1)
+  arr1_m = len(arr1[0])
+  arr2_n = len(arr1)
+  arr2_m = len(arr2[0])
+  
   return answer
+
+
 
 ex1_arr1 = [[1, 4], [3, 2], [4, 1]]
 ex1_arr2 = [[3, 3], [3, 3]]
