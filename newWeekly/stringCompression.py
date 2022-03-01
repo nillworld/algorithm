@@ -1,3 +1,15 @@
+import math 
+import time 
+import datetime 
+start = time.time() 
+math.factorial(12345) 
+end = time.time() 
+sec = (end - start) 
+result = datetime.timedelta(seconds=sec) 
+print(result) 
+result_list = str(datetime.timedelta(seconds=sec)).split(".") 
+print(result_list[0])
+
 #https://programmers.co.kr/learn/courses/30/lessons/60057
 def solution(s):
     answer = 0
