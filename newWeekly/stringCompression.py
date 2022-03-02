@@ -2,13 +2,16 @@ import math
 import time 
 import datetime 
 start = time.time() 
-math.factorial(12345) 
+print(start)
+math.factorial(22345) 
 end = time.time() 
-sec = (end - start) 
-result = datetime.timedelta(seconds=sec) 
-print(result) 
-result_list = str(datetime.timedelta(seconds=sec)).split(".") 
-print(result_list[0])
+print(end)
+sec = (end - start)
+print(sec)
+# result = datetime.timedelta(seconds=sec) 
+# print(result) 
+# result_list = str(datetime.timedelta(seconds=sec)).split(".") 
+# print(result_list[0])
 
 #https://programmers.co.kr/learn/courses/30/lessons/60057
 def solution(s):
