@@ -6,8 +6,10 @@ print(start)
 math.factorial(22345) 
 end = time.time() 
 print(end)
+
 sec = (end - start)
 print(sec)
+
 # result = datetime.timedelta(seconds=sec) 
 # print(result) 
 # result_list = str(datetime.timedelta(seconds=sec)).split(".") 
@@ -29,5 +31,7 @@ s2 = "ababcdcdababcdcd"
 s3 = "abcabcdede"
 s4 ="abcabcabcabcdededededede"
 s5 = "xababcdcdababcdcd"
+s6 = "abcdababcdcd"
+s7 = "abcddababcdcd"
 print(solution(s1))
 print(factorial(500))
