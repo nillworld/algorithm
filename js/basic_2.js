@@ -1,3 +1,8 @@
+// https://evan-moon.github.io/2019/06/15/diving-into-js-array/
+// js배열은 배열이 아니다 (해쉬 테이블?!)
+// https://evan-moon.github.io/2019/06/15/diving-into-js-array/
+// 배열에 대한 js 엔진
+
 /* ================================    1    ================================== */
 
 function arrayTest() {
@@ -119,17 +124,7 @@ function indexOfTest() {
 /* ================================    8    ================================== */
 
 function filterTest() {
-  const arr = [
-    { id: 15 },
-    { id: -1 },
-    { id: 0 },
-    { id: 3 },
-    { id: 12.2 },
-    {},
-    { id: null },
-    { id: NaN },
-    { id: "undefined" },
-  ];
+  const arr = [{ id: 15 }, { id: -1 }, { id: 0 }, { id: 3 }, { id: 12.2 }, {}, { id: null }, { id: NaN }, { id: "undefined" }];
   let invalidEntries = 0;
   function isNumber(obj) {
     return obj !== undefined && typeof obj === "number" && !isNaN(obj);
