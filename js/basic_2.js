@@ -4,7 +4,7 @@
 // 배열에 대한 js 엔진
 
 /* ================================    1    ================================== */
-
+// Array의 Queue 구현
 function arrayTest() {
   const array_1 = [1, 2, 5, 3, 2];
   array_1.push(8);
@@ -22,6 +22,7 @@ function arrayTest() {
 }
 
 /* ================================    2    ================================== */
+// js에서 Int의 최대값과 최소값의 버무이
 
 function minAndMaxSaveInt() {
   // https://developer.mozilla.org/ko/docs/Web/JavaScript/Reference/Global_Objects/Number/MIN_SAFE_INTEGER
