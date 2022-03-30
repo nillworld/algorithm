@@ -1,4 +1,4 @@
-// https://evan-moon.github.io/2019/06/15/diving-into-js-array/
+// https://poiemaweb.com/js-array-is-not-arrray
 // js배열은 배열이 아니다 (해쉬 테이블?!)
 // https://evan-moon.github.io/2019/06/15/diving-into-js-array/
 // 배열에 대한 js 엔진
