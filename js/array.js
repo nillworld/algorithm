@@ -5,6 +5,7 @@
 
 function arrayObject() {
   console.log(Object.getOwnPropertyDescriptors([1, "E", "3"]));
+  console.log(Object.getOwnPropertyDescriptors({ 0: 1, 1: "E", 2: "3" }));
 }
 arrayObject();
 /* ========================================================================== */
