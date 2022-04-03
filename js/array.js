@@ -7,7 +7,18 @@ function arrayObject() {
   console.log(Object.getOwnPropertyDescriptors([1, "E", "3"]));
   console.log(Object.getOwnPropertyDescriptors({ 0: 1, 1: "E", 2: "3" }));
 }
-arrayObject();
+
+/* ========================================================================== */
+
+function bufferTest() {
+  let buffer = new ArrayBuffer(8);
+  let view = new Int32Array(buffer);
+  view[0] = 100;
+  console.log(buffer);
+  console.log(view);
+}
+
+bufferTest();
 /* ========================================================================== */
 
 // Array의 Queue 구현
