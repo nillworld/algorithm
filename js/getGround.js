@@ -33,6 +33,28 @@ function solution_before(land) {
 
 // ---------------------------------------------------------
 
+function solution(land) {
+  let answer = 0;
+  let append_line = land[0];
+
+  for (let i in land) {
+    let temp = [...append_line];
+    if (i > 0) {
+      append_line[0] = Math.max(temp[1], temp[2], temp[3]) + land[i][0];
+      append_line[1] = Math.max(temp[0], temp[2], temp[3]) + land[i][1];
+      append_line[2] = Math.max(temp[0], temp[1], temp[3]) + land[i][2];
+      append_line[3] = Math.max(temp[0], temp[1], temp[2]) + land[i][3];
+    }
+  }
+
+  console.log(append_line);
+  answer = Math.max(...append_line);
+
+  return answer;
+}
+
+// ---------------------------------------------------------
+
 let land1 = [
   [1, 2, 3, 5],
   [1, 2, 5, 5],
@@ -51,6 +73,12 @@ let land3 = [
   [5, 6, 97, 99],
   [4, 3, 2, 16],
 ];
-
+let land4 = [
+  [1, 2, 3, 5],
+  [5, 6, 7, 8],
+  [4, 3, 2, 1],
+];
 console.log(solution(land1)); // 33
 console.log(solution(land2)); // 44
+console.log(solution(land3)); // 44
+console.log(solution(land4)); // 44
