@@ -1,13 +1,14 @@
 // https://programmers.co.kr/learn/courses/30/lessons/12913
-function solution(land) {
+function solution_before(land) {
   var answer = 0;
   let arr = land.flat();
-  // arr.flat();
-  console.log(land);
-  console.log(arr.sort());
-  console.log(arr);
-  let tops = arr.slice(0, 5);
+  arr.sort((a, b) => b - a);
+  let tops = arr.slice(0, land.length);
   console.log(tops);
+
+  for (let firstCheckNum of tops) {
+    console.log(firstCheckNum);
+  }
 
   for (let i = 0; i < land.length; i++) {
     let land_line = land[i];
@@ -29,6 +30,8 @@ function solution(land) {
   // 이 중에서 하나를 뽑았을 때 나오는 최대값을 각각 구해서 이 중 최대값 뽑기.
   return answer;
 }
+
+// ---------------------------------------------------------
 
 let land1 = [
   [1, 2, 3, 5],
