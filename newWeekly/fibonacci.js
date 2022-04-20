@@ -32,4 +32,13 @@ function solution2(n) {
   answer = parseInt(answer);
   return answer;
 }
-console.log(solution2(999));
+
+function solution3(n) {
+  let answer = [0, 1];
+  if (n <= 1) return answer[n];
+  for (var i = 2; i < n + 1; i++) {
+    answer.push((answer[i - 2] + answer[i - 1]) % 1234567);
+  }
+  return answer[n];
+}
+console.log(solution3(999));
