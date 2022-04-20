@@ -42,3 +42,6 @@ function solution3(n) {
   return answer[n];
 }
 console.log(solution3(999));
+
+// Dynamic programming
+// https://www.zerocho.com/category/Algorithm/post/584b979a580277001862f182
