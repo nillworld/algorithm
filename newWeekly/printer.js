@@ -2,8 +2,27 @@
 
 function solution(priorities, location) {
   let answer = 0;
-
-  for ()
+  let sortedPriorities = [...priorities];
+  let printingOrder = new Array(priorities.length).fill(0);
+  let printMap = [];
+  let cnt = 1;
+  for (const i in priorities) {
+    printMap[i] = { key: parseInt(i), priority: priorities[i] };
+  }
+  // console.log(printingOrder);
+  sortedPriorities.sort((a, b) => b - a);
+  while (printMap[0]) {
+    if (printMap[0].priority === sortedPriorities[0]) {
+      sortedPriorities.splice(0, 1);
+      printingOrder[printMap[0].key] = cnt;
+      cnt++;
+      printMap.splice(0, 1);
+    } else {
+      printMap.push(printMap[0]);
+      printMap.splice(0, 1);
+    }
+  }
+  answer = printingOrder[location];
   return answer;
 }
 
