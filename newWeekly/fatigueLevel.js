@@ -22,6 +22,9 @@ function solution(k, dungeons) {
 }
 
 function solution2(k, dungeons) {
+  // https://velog.io/@khw970421/%ED%94%84%EB%A1%9C%EA%B7%B8%EB%9E%98%EB%A8%B8%EC%8A%A4-%EC%9C%84%ED%81%B4%EB%A6%AC%EC%B1%8C%EB%A6%B0%EC%A7%80-%ED%94%BC%EB%A1%9C%EB%8F%84
+  // https://velog.io/@proshy/JS%EC%88%9C%EC%97%B4%EC%A1%B0%ED%95%A9%EC%A4%91%EB%B3%B5%EC%88%9C%EC%97%B4-%EA%B5%AC%ED%95%98%EA%B8%B0
+
   let answer = 0;
   let copiedDungeons = [...dungeons];
   // let leftK = k;
