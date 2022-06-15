@@ -49,20 +49,23 @@ function minAndMaxSaveInt() {
 
 // https://im-developer.tistory.com/103
 function sliceAndSplice() {
-  const array_1 = [1, 2, 3, 4, 5];
+  const array_1 = [1, 2, 3, 4, 5, 6, 7, 8, 9];
   console.log(array_1.slice(1, 2)); // [2] / array_[1]에서 index[2]전까지
-  console.log(array_1.slice(-2)); // [4, 5]
-  console.log(array_1); // [ 1, 2, 3, 4, 5 ] / slice는 원본은 수정 못함.
+  console.log(array_1.slice(-2)); // [8, 9]
+  console.log(array_1.slice(3)); // [4, 5, 6, 7, 8, 9]
+  console.log(array_1); // [ 1, 2, 3, 4, 5, 6, 7, 8, 9 ] / slice는 원본은 수정 못함.
 
   console.log(array_1.splice(1, 2)); // [ 2, 3 ] / array_[1] 부터 2개
-  console.log(array_1); // [ 1, 4, 5 ] / splice 되고 남은 배열
-  console.log(array_1.splice(-1, 1)); // [ 5 ]
-  console.log(array_1); // [ 1, 4 ]
-  console.log(array_1.splice(2)); // [ ]
+  console.log(array_1); // [ 1, 4, 5, 6, 7, 8, 9 ] / splice 되고 남은 배열
+  console.log(array_1.splice(-1, 1)); // [ 9 ]
+  console.log(array_1); // [ 1, 4, 5, 6, 7, 8 ]
+  console.log(array_1.splice(2)); // [ 5, 6, 7, 8 ]
   console.log(array_1); // [ 1, 4 ]
   console.log(array_1.splice(-1, 1, "a", "b")); // [ 4 ]
   console.log(array_1); // [ 1, 'a', 'b' ]
 }
+
+sliceAndSplice();
 
 /* ================================    4    ================================== */
 
@@ -125,7 +128,17 @@ function indexOfTest() {
 /* ================================    8    ================================== */
 
 function filterTest() {
-  const arr = [{ id: 15 }, { id: -1 }, { id: 0 }, { id: 3 }, { id: 12.2 }, {}, { id: null }, { id: NaN }, { id: "undefined" }];
+  const arr = [
+    { id: 15 },
+    { id: -1 },
+    { id: 0 },
+    { id: 3 },
+    { id: 12.2 },
+    {},
+    { id: null },
+    { id: NaN },
+    { id: "undefined" },
+  ];
   let invalidEntries = 0;
   function isNumber(obj) {
     return obj !== undefined && typeof obj === "number" && !isNaN(obj);
@@ -290,4 +303,4 @@ function mapTest() {
     console.log(key, value); // id 3 / id_2 2
   }
 }
-mapTest();
+// mapTest();
