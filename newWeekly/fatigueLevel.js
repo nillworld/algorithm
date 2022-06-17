@@ -28,23 +28,24 @@ function solution2(k, dungeons) {
   let answer = 0;
   let copiedDungeons = [...dungeons];
   // let leftK = k;
-
+  let test = 0;
   const p = (arr, k, cnt) => {
-    console.log(arr);
-    let maxCnt = cnt;
-    let leftK = k;
-    for (const a of arr) {
-      if (a[0] <= leftK) {
-        leftK -= a[1];
-        maxCnt += 1;
-        if (arr.length > 1) Math.max(maxCnt, p(arr.splice(1), leftK, maxCnt));
+    let maxCnt = 0;
+    for (const i in arr) {
+      if (k >= arr[i][0]) {
+        cnt++;
+        k -= arr[i][1];
+        arr.splice(i, 1);
+        test = Math.max(test, cnt);
+        p(arr, k, cnt);
+        console.log(arr, k, cnt);
       }
-      maxCnt;
     }
-    return maxCnt;
   };
 
-  answer = p(dungeons, k, 0);
+  p(dungeons, k, 0);
+
+  answer = test;
 
   // console.log(copiedDungeons);
   // for (const copiedDungeon of copiedDungeons) {
@@ -53,7 +54,7 @@ function solution2(k, dungeons) {
   //     answer += 1;
   //   }
   // }
-  // return answer;
+  return answer;
 }
 
 const k1 = 80;
