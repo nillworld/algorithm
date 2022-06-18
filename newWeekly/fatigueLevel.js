@@ -28,23 +28,38 @@ function solution2(k, dungeons) {
   let answer = 0;
   let copiedDungeons = [...dungeons];
   // let leftK = k;
-  const p = (arr, k, cnt, maxCnt) => {
-    let arrCopy = [...arr];
-    for (const i in arr) {
-      console.log(arr);
-      // if (k >= arr[i][0]) {
-      //   cnt++;
-      k -= arr[i][1];
-      arrCopy.splice(i, 1);
-      // maxCnt = Math.max(maxCnt, cnt);
-      //   console.log(arr, k, cnt, maxCnt);
-      // }
-      p(arrCopy, k, cnt, maxCnt);
-    }
-    // return maxCnt;
+  const p = (arr, k, cnt) => {
+    arr.forEach((fatigue, i, array) => {
+      let copyArray = [...array];
+      let copyK = k;
+      let copyCnt = cnt;
+      if (copyK >= fatigue[0]) {
+        copyCnt++;
+        copyK -= fatigue[1];
+        copyArray.splice(i, 1);
+        answer = Math.max(copyCnt, answer);
+        p(copyArray, copyK, copyCnt);
+      } else {
+      }
+    });
+
+    // let arrCopy = [...arr];
+    // console.log(arr);
+
+    // for (const i in arr) {
+    //   // if (k >= arr[i][0]) {
+    //   //   cnt++;
+    //   k -= arr[i][1];
+    //   arrCopy.splice(i, 1);
+    //   // maxCnt = Math.max(maxCnt, cnt);
+    //   //   console.log(arr, k, cnt, maxCnt);
+    //   // }
+    //   p(arrCopy, k, cnt, maxCnt);
+    // }
+    // // return maxCnt;
   };
 
-  p(dungeons, k, 0, 0);
+  p(dungeons, k, 0);
 
   // console.log(copiedDungeons);
   // for (const copiedDungeon of copiedDungeons) {
