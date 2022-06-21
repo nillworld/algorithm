@@ -17,4 +17,13 @@ const p = (arr, answer, catchNum) => {
   });
 };
 
-p(array1, answer, catchNum);
+// p(array1, answer, catchNum);
+
+let array2 = "ekres";
+console.log(array2[1]);
+// array2.forEach((k, i, arr) => {
+//   let copy = [...arr];
+//   console.log("k: ", k);
+//   k = 0;
+//   console.log(array1 === copy ? "같음" : "아님");
+// });
