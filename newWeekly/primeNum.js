@@ -7,36 +7,40 @@ function solution(numbers) {
   const getAllNum = (numArray, n, makingNum) => {
     for (const i in numArray) {
       let copyArray = [...numArray];
-      makingNum += copyArray[i];
-      // n++;
-      console.log("n: ", n);
+      // copy한 이유는 이 안에서 makingNum 이용하고 있는데, for문 돌리고 있는데 변경해 버리면 로직이...
+      let copyMakingNum = makingNum;
+      copyMakingNum += copyArray[i];
+
+      // 011 => 11
+      copyMakingNum = parseInt(copyMakingNum);
       copyArray.splice(i, 1);
-      if (makingNum.length >= n) {
-        allNum.add(parseInt(makingNum));
+      if (copyMakingNum.toString().length >= n) {
+        if (copyMakingNum >= 2) {
+          allNum.add(copyMakingNum);
+        }
       } else {
-        getAllNum(copyArray, n, makingNum);
+        getAllNum(copyArray, n, copyMakingNum);
       }
     }
-
-    // numArray.forEach((k, i, array) => {
-    //   let copyArray = [...array];
-    //   makingNum += k;
-    //   n++;
-    //   copyArray.splice(i, 1);
-    //   if (makingNum.length >= n) {
-    //     allNum.add(makingNum);
-    //   } else {
-    //     getAllNum(copyArray, n, makingNum);
-    //   }
-    // });
   };
 
   for (const i in numbers) {
-    console.log(i);
     getAllNum(numbers, parseInt(i) + 1, 0);
-    console.log(allNum);
   }
+  console.log(allNum);
 
+  primeCheck: for (const num of allNum) {
+    if ((num === 2) | (num === 3)) {
+      answer += 1;
+    } else {
+      for (let a = 2; a <= Math.sqrt(num); a++) {
+        if (num % a === 0) {
+          continue primeCheck;
+        }
+      }
+      answer += 1;
+    }
+  }
   return answer;
 }
 
