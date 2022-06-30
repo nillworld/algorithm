@@ -47,6 +47,9 @@ function solution(orders, course) {
         } else {
           courseMenus[courseMenu] = 1;
         }
+        // if (courseMenus[courseMenu] > 1) {
+        //   answer.push(courseMenu);
+        // }
       });
       // console.log("chekc,", order);
       // orderList = getCombinations(order.split(""), num).reduce((courseMenu, combi) => {
@@ -61,6 +64,12 @@ function solution(orders, course) {
     });
     // console.log(orderList);
     console.log("courseMenus:  ", courseMenus);
+    // for (const courseMenu in courseMenus) {
+    //   if (courseMenus[courseMenu] > 1) {
+    //     answer.push(courseMenu);
+    //   }
+    // }
+    // console.log("courseMenus:  ", courseMenus.keys());
   });
 
   return answer;
