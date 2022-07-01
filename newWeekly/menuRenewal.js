@@ -6,6 +6,19 @@ function solution(orders, course) {
     return sortedOrder;
   }, []);
   let answer = [];
+
+  // console.log(sortedOrders);
+
+  // sortedOrders.forEach((order) => {
+  //   console.log(order, otherOrder);
+  //   for (const otherOrder of sortedOrders) {
+  //     if (order in otherOrder) {
+  //       answer.push(order);
+  //       break;
+  //     }
+  //   }
+  // });
+
   // orders.forEach((order) => {
   //   course.forEach((courseNum) => {});
   // });
@@ -43,6 +56,7 @@ function solution(orders, course) {
       // console.log("orderList", orderList);
       orderList.forEach((courseMenu) => {
         if (courseMenu in courseMenus) {
+          // console.log("testtttttttttt", ...courseMenu);
           courseMenus[courseMenu]++;
         } else {
           courseMenus[courseMenu] = 1;
@@ -63,12 +77,22 @@ function solution(orders, course) {
       // }, []);
     });
     // console.log(orderList);
-    console.log("courseMenus:  ", courseMenus);
-    // for (const courseMenu in courseMenus) {
-    //   if (courseMenus[courseMenu] > 1) {
-    //     answer.push(courseMenu);
-    //   }
-    // }
+    // console.log("courseMenus:  ", num, courseMenus);
+    let orderCnt = 2;
+    let tempCourseMenu = [];
+    for (const courseMenu in courseMenus) {
+      if (courseMenus[courseMenu] > orderCnt) {
+        orderCnt = courseMenus[courseMenu];
+        tempCourseMenu = [courseMenu];
+      } else if (courseMenus[courseMenu] === orderCnt) {
+        tempCourseMenu.push(courseMenu);
+      }
+    }
+    const courseMenu = tempCourseMenu.map((courseMenu) => {
+      return courseMenu.replace(/,/gi, "");
+    });
+    answer.push(...courseMenu);
+    answer.sort();
     // console.log("courseMenus:  ", courseMenus.keys());
   });
 
