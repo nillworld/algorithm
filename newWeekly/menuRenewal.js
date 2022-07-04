@@ -1,38 +1,14 @@
 // https://programmers.co.kr/learn/courses/30/lessons/72411
 
 function solution(orders, course) {
+  // 조합을 구하기 쉽게 하기 위해 orders의 메뉴를 오름차순 정렬
   let sortedOrders = orders.reduce((sortedOrder, order) => {
     sortedOrder.push(order.split("").sort().join(""));
     return sortedOrder;
   }, []);
   let answer = [];
 
-  // console.log(sortedOrders);
-
-  // sortedOrders.forEach((order) => {
-  //   console.log(order, otherOrder);
-  //   for (const otherOrder of sortedOrders) {
-  //     if (order in otherOrder) {
-  //       answer.push(order);
-  //       break;
-  //     }
-  //   }
-  // });
-
-  // orders.forEach((order) => {
-  //   course.forEach((courseNum) => {});
-  // });
-
-  // const a = (arr, getNum) => {
-  //   if (getNum > 0) {
-  //     arr.forEach((element) => {
-  //       if (element in answer) {
-  //         answer.push(element);
-  //       }
-  //     });
-  //   }
-  // };
-
+  // 조합할 수 있는 배열 구하기
   const getCombinations = function (arr, selectNumber) {
     const results = [];
     if (selectNumber === 1) return arr.map((value) => [value]); // 1개씩 택할 때, 바로 모든 배열의 원소 return
@@ -47,39 +23,28 @@ function solution(orders, course) {
     return results; // 결과가 담긴 results를 return
   };
 
+  //  뽑는 개수에 따라서 조합 구하기
   course.forEach((num) => {
+    // 조합으로 구한 코스 메뉴의 모든 경우가 키가 되고 주문횟수를 값으로 하는 변수.
     let courseMenus = [];
-    // console.log("check num: ", sortedOrders);
 
+    // 각 order마다 조합 구하기
     sortedOrders.forEach((order) => {
       let orderList = getCombinations(order.split(""), num);
-      // console.log("orderList", orderList);
       orderList.forEach((courseMenu) => {
         if (courseMenu in courseMenus) {
-          // console.log("testtttttttttt", ...courseMenu);
           courseMenus[courseMenu]++;
         } else {
           courseMenus[courseMenu] = 1;
         }
-        // if (courseMenus[courseMenu] > 1) {
-        //   answer.push(courseMenu);
-        // }
       });
-      // console.log("chekc,", order);
-      // orderList = getCombinations(order.split(""), num).reduce((courseMenu, combi) => {
-      //   if (combi in courseMenu) {
-      //     console.log("???????");
-      //     courseMenu[combi]++;
-      //   } else {
-      //     courseMenu[combi] = 1;
-      //   }
-      //   return courseMenu;
-      // }, []);
     });
-    // console.log(orderList);
-    // console.log("courseMenus:  ", num, courseMenus);
+
     let orderCnt = 2;
     let tempCourseMenu = [];
+
+    // 코스 메뉴의 order 횟수가 2이상일때 temp 배열에 넣음.
+    // order 횟수의 최대값이 바뀌면 temp 새로 초기화
     for (const courseMenu in courseMenus) {
       if (courseMenus[courseMenu] > orderCnt) {
         orderCnt = courseMenus[courseMenu];
@@ -93,7 +58,6 @@ function solution(orders, course) {
     });
     answer.push(...courseMenu);
     answer.sort();
-    // console.log("courseMenus:  ", courseMenus.keys());
   });
 
   return answer;
