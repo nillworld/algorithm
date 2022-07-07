@@ -11,3 +11,7 @@ const getCombinations = function (arr, selectNumber) {
 
   return results; // 결과가 담긴 results를 return
 };
+
+// https://mine-it-record.tistory.com/508
+// https://pul8219.github.io/algorithm/algorithm-permutation-and-combination/
+// https://velog.io/@devjade/JavaScript%EB%A1%9C-%EC%88%9C%EC%97%B4%EA%B3%BC-%EC%A1%B0%ED%95%A9-%EC%95%8C%EA%B3%A0%EB%A6%AC%EC%A6%98-%EA%B5%AC%ED%98%84%ED%95%98%EA%B8%B0
